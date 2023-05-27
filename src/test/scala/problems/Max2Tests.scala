@@ -12,10 +12,13 @@ class Max2Tests(c: Max2) extends PeekPokeTester(c) {
 
     // Implement below ----------
 
-    poke(c.io.in0, 0)
-    poke(c.io.in1, 0)
+    val a = rnd.nextInt(100)
+    val b = rnd.nextInt(100)
+    val m = a.max(b)
+    poke(c.io.in0, a)
+    poke(c.io.in1, b)
     step(1)
-    expect(c.io.out, 1)
+    expect(c.io.out, m)
 
     // Implement above ----------
   }
