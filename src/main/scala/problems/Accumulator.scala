@@ -16,7 +16,8 @@ class Accumulator extends Module {
 
   // Implement below ----------
 
-  io.out := 0.U
+  val (count, _) = util.Counter(io.in(0), 256)
+  io.out := count
 
   // Implement above ----------
 }
