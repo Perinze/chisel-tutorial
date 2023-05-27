@@ -19,7 +19,10 @@ class VecShiftRegisterSimple extends Module {
 
   // Implement below ----------
 
-  io.out := 0.U
+  for (i <- 3 to 1 by -1)
+    delays(i) := delays(i-1)
+  delays(0) := io.in
+  io.out := delays(3)
 
   // Implement above ----------
 }
