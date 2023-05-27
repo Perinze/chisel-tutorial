@@ -27,12 +27,10 @@ class RealGCD extends Module {
   io.in.ready := true.B
   when (b === 0.U) {
     io.out.valid := true.B
-
     io.in.ready := true.B
     a := io.in.bits.a
     b := io.in.bits.b
-  }
-  when (b =/= 0.U) {
+  } .otherwise {
     io.out.valid := false.B
     io.in.ready := false.B
     a := b
